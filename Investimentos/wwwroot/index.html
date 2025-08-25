@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Investimentos - Teste API</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .container {
+            background: #fff;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 800px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 25px;
+        }
+
+        input, button {
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        input {
+            width: calc(100% - 130px);
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 25px;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Investimentos</h1>
+
+        <div style="display:flex; align-items:center;">
+            <input type="text" id="userId" placeholder="Digite o UUID do usuário" />
+            <button onclick="listarInvestimentos()">Listar</button>
+        </div>
+
+        <table id="tabelaInvestimentos" style="display:none;">
+            <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Código</th>
+                    <th>Valor</th>
+                    <th>Operação</th>
+                    <th>Criado em</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <p id="mensagem" style="margin-top:20px; color:#555;">Insira o UUID e clique em "Listar".</p>
+    </div>
+
+    <script>
+        const baseUrl = "http://localhost:5171"; // URL da API
+
+        async function listarInvestimentos() {
+            const userId = document.getElementById("userId").value.trim();
+            const tabela = document.getElementById("tabelaInvestimentos");
+            const tbody = tabela.querySelector("tbody");
+            const mensagem = document.getElementById("mensagem");
+
+            if (!userId) {
+                alert("Digite o UUID do usuário!");
+                return;
+            }
+
+            try {
+                const response = await fetch(`${baseUrl}/investimentos/${userId}`);
+                if (!response.ok) throw new Error("Erro ao buscar investimentos");
+                const data = await response.json();
+
+                if (!data.length) {
+                    tabela.style.display = "none";
+                    mensagem.textContent = "Nenhum investimento encontrado.";
+                    return;
+                }
+
+                tbody.innerHTML = ""; // limpa tabela
+                data.forEach(inv => {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                        <td>${inv.tipo}</td>
+                        <td>${inv.codigo}</td>
+                        <td>R$ ${inv.valor.toLocaleString('pt-BR')}</td>
+                        <td style="color: ${inv.operacao === 'compra' ? 'green' : 'red'};">${inv.operacao}</td>
+                        <td>${new Date(inv.criadoEm).toLocaleString('pt-BR')}</td>
+                    `;
+                    tbody.appendChild(row);
+                });
+
+                tabela.style.display = "table";
+                mensagem.textContent = "";
+            } catch (err) {
+                tabela.style.display = "none";
+                mensagem.textContent = `Erro: ${err.message}`;
+            }
+        }
+    </script>
+</body>
+</html>
