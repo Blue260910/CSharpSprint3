@@ -34,3 +34,40 @@ C:\Users\victo\OneDrive\Área de Trabalho\Sprint3\CSharp\Investimentos\obj\Debug
 C:\Users\victo\OneDrive\Área de Trabalho\Sprint3\CSharp\Investimentos\bin\Debug\net9.0\Npgsql.dll
 C:\Users\victo\OneDrive\Área de Trabalho\Sprint3\CSharp\Investimentos\bin\Debug\net9.0\Investimentos.staticwebassets.runtime.json
 C:\Users\victo\OneDrive\Área de Trabalho\Sprint3\CSharp\Investimentos\obj\Debug\net9.0\compressed\rsxhvjnfem-rnsiapspqf.gz
+C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\bin\Debug\net9.0\appsettings.Development.json
+C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\bin\Debug\net9.0\appsettings.json
+C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\bin\Debug\net9.0\Investimentos.staticwebassets.runtime.json
+C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\bin\Debug\net9.0\Investimentos.staticwebassets.endpoints.json
+C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\bin\Debug\net9.0\Investimentos.exe
+C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\bin\Debug\net9.0\Investimentos.deps.json
+C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\bin\Debug\net9.0\Investimentos.runtimeconfig.json
+C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\bin\Debug\net9.0\Investimentos.dll
+C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\bin\Debug\net9.0\Investimentos.pdb
+C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\bin\Debug\net9.0\Microsoft.OpenApi.dll
+C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\bin\Debug\net9.0\Npgsql.dll
+C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\obj\Debug\net9.0\Investimentos.csproj.AssemblyReference.cache
+C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\obj\Debug\net9.0\Investimentos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\obj\Debug\net9.0\Investimentos.AssemblyInfoInputs.cache
+C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\obj\Debug\net9.0\Investimentos.AssemblyInfo.cs
+C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\obj\Debug\net9.0\Investimentos.csproj.CoreCompileInputs.cache
+C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\obj\Debug\net9.0\Investimentos.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\obj\Debug\net9.0\Investimentos.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\obj\Debug\net9.0\Investimentos.sourcelink.json
+C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\obj\Debug\net9.0\scopedcss\bundle\Investimentos.styles.css
+C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\obj\Debug\net9.0\staticwebassets.development.json
+C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\obj\Debug\net9.0\staticwebassets\msbuild.Investimentos.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\obj\Debug\net9.0\staticwebassets\msbuild.Investimentos.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\obj\Debug\net9.0\staticwebassets\msbuild.build.Investimentos.props
+C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.Investimentos.props
+C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.Investimentos.props
+C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\obj\Debug\net9.0\staticwebassets.pack.json
+C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\obj\Debug\net9.0\Investim.9AC0B925.Up2Date
+C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\obj\Debug\net9.0\Investimentos.dll
+C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\obj\Debug\net9.0\refint\Investimentos.dll
+C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\obj\Debug\net9.0\Investimentos.pdb
+C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\obj\Debug\net9.0\Investimentos.genruntimeconfig.cache
+C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\obj\Debug\net9.0\ref\Investimentos.dll
+C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\obj\Debug\net9.0\compressed\rsxhvjnfem-so80nj81fg.gz
