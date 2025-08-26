@@ -20,10 +20,9 @@ public class InvestimentoRepository
 
         var sql = @"INSERT INTO public.investimentos 
                     (user_id, tipo, codigo, valor, operacao) 
-                    VALUES (@UserId, @Tipo, @Codigo, @Valor, @Operacao)";
-
+                    VALUES ((SELECT id FROM public.user_profiles WHERE cpf = @Cpf), @Tipo, @Codigo, @Valor, @Operacao)";
         using var cmd = new NpgsqlCommand(sql, conn);
-        cmd.Parameters.AddWithValue("UserId", investimento.UserId);
+        cmd.Parameters.AddWithValue("Cpf", investimento.UserCpf);
         cmd.Parameters.AddWithValue("Tipo", investimento.Tipo);
         cmd.Parameters.AddWithValue("Codigo", investimento.Codigo);
         cmd.Parameters.AddWithValue("Valor", investimento.Valor);

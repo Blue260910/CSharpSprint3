@@ -33,7 +33,6 @@ C:\Users\victo\OneDrive\Área de Trabalho\Sprint3\CSharp\Investimentos\obj\Debug
 C:\Users\victo\OneDrive\Área de Trabalho\Sprint3\CSharp\Investimentos\obj\Debug\net9.0\ref\Investimentos.dll
 C:\Users\victo\OneDrive\Área de Trabalho\Sprint3\CSharp\Investimentos\bin\Debug\net9.0\Npgsql.dll
 C:\Users\victo\OneDrive\Área de Trabalho\Sprint3\CSharp\Investimentos\bin\Debug\net9.0\Investimentos.staticwebassets.runtime.json
-C:\Users\victo\OneDrive\Área de Trabalho\Sprint3\CSharp\Investimentos\obj\Debug\net9.0\compressed\rsxhvjnfem-rnsiapspqf.gz
 C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\bin\Debug\net9.0\appsettings.Development.json
 C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\bin\Debug\net9.0\appsettings.json
 C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\bin\Debug\net9.0\Investimentos.staticwebassets.runtime.json
@@ -71,3 +70,5 @@ C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\obj\Debug\net9
 C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\obj\Debug\net9.0\Investimentos.genruntimeconfig.cache
 C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\obj\Debug\net9.0\ref\Investimentos.dll
 C:\Users\victo\Desktop\Sprint3\CSharp\CSharpSprint3\Investimentos\obj\Debug\net9.0\compressed\rsxhvjnfem-so80nj81fg.gz
+C:\Users\victo\OneDrive\Área de Trabalho\Sprint3\CSharp\Investimentos\obj\Debug\net9.0\Investimentos.sourcelink.json
+C:\Users\victo\OneDrive\Área de Trabalho\Sprint3\CSharp\Investimentos\obj\Debug\net9.0\compressed\rsxhvjnfem-e9168xbz15.gz
