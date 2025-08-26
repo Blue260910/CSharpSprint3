@@ -33,19 +33,28 @@ public class InvestimentoRepository
     }
 
     // Listar todos os investimentos de um usuário
-    public List<Investimento> ListarPorUsuario(Guid userId)
+    public List<Investimento> ListarPorUsuario(string UserCpf)
     {
         var lista = new List<Investimento>();
 
         using var conn = new NpgsqlConnection(_connectionString);
         conn.Open();
 
-        var sql = @"SELECT id, user_id, tipo, codigo, valor, operacao, criado_em, alterado_em 
-                    FROM public.investimentos 
-                    WHERE user_id = @UserId";
+        Console.WriteLine($"Conectado ao banco de dados: {conn.Database}");
+
+        var sql = @"
+            SELECT id, user_id, tipo, codigo, valor, operacao, criado_em, alterado_em
+            FROM public.investimentos
+            WHERE user_id IN (
+                SELECT id 
+                FROM public.user_profiles
+                WHERE cpf = @Cpf
+            )";
 
         using var cmd = new NpgsqlCommand(sql, conn);
-        cmd.Parameters.AddWithValue("UserId", userId);
+        cmd.Parameters.AddWithValue("Cpf", UserCpf);
+
+        Console.WriteLine($"Parâmetro Cpf: {UserCpf}");
 
         using var reader = cmd.ExecuteReader();
         while (reader.Read())

@@ -18,7 +18,7 @@
             border-radius: 12px;
             box-shadow: 0 6px 20px rgba(0,0,0,0.1);
             width: 100%;
-            max-width: 800px;
+            max-width: 900px;
         }
 
         h1 {
@@ -27,28 +27,36 @@
             margin-bottom: 25px;
         }
 
-        input, button {
+        input, select, button {
             padding: 10px 15px;
             border-radius: 8px;
             border: 1px solid #ccc;
             font-size: 16px;
         }
 
-        input {
-            width: calc(100% - 130px);
-            margin-right: 10px;
+        input, select {
+            width: 100%;
         }
 
         button {
-            background-color: #3498db;
-            color: #fff;
-            border: none;
             cursor: pointer;
             transition: background 0.3s;
         }
 
-        button:hover {
-            background-color: #2980b9;
+        .btn-add { background-color: #27ae60; color: #fff; border: none; }
+        .btn-add:hover { background-color: #1e8449; }
+
+        .btn-update { background-color: #2980b9; color: #fff; border: none; }
+        .btn-update:hover { background-color: #1f618d; }
+
+        .btn-delete { background-color: #c0392b; color: #fff; border: none; padding:5px 10px; border-radius:6px; }
+        .btn-delete:hover { background-color: #922b21; }
+
+        .flex-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
         }
 
         table {
@@ -60,7 +68,7 @@
         th, td {
             padding: 12px 15px;
             border-bottom: 1px solid #ddd;
-            text-align: left;
+            text-align: center;
         }
 
         th {
@@ -71,78 +79,211 @@
         tr:hover {
             background-color: #f1f1f1;
         }
+
+        .card {
+            background: #fefefe;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            margin-top: 25px;
+        }
+
+        .card h2 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 20px;
+            color: #2c3e50;
+        }
+
+        .mensagem {
+            margin-top: 20px;
+            color: #555;
+        }
+
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Investimentos</h1>
+<div class="container">
+    <h1>Investimentos</h1>
 
-        <div style="display:flex; align-items:center;">
-            <input type="text" id="userId" placeholder="Digite o UUID do usuário" />
-            <button onclick="listarInvestimentos()">Listar</button>
-        </div>
-
-        <table id="tabelaInvestimentos" style="display:none;">
-            <thead>
-                <tr>
-                    <th>Tipo</th>
-                    <th>Código</th>
-                    <th>Valor</th>
-                    <th>Operação</th>
-                    <th>Criado em</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
-
-        <p id="mensagem" style="margin-top:20px; color:#555;">Insira o UUID e clique em "Listar".</p>
+    <!-- Busca por CPF -->
+    <div class="flex-row">
+        <input type="text" id="UserCpf" placeholder="Digite o CPF do usuário" />
+        <button class="btn-add" onclick="listarInvestimentos()">Listar</button>
     </div>
 
-    <script>
-        const baseUrl = "http://localhost:5171"; // URL da API
+    <!-- Tabela de investimentos -->
+    <table id="tabelaInvestimentos" style="display:none;">
+        <thead>
+        <tr>
+            <th>Tipo</th>
+            <th>Código</th>
+            <th>Valor</th>
+            <th>Operação</th>
+            <th>Criado em</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
 
-        async function listarInvestimentos() {
-            const userId = document.getElementById("userId").value.trim();
-            const tabela = document.getElementById("tabelaInvestimentos");
-            const tbody = tabela.querySelector("tbody");
-            const mensagem = document.getElementById("mensagem");
+    <p id="mensagem" class="mensagem">Insira o CPF e clique em "Listar".</p>
 
-            if (!userId) {
-                alert("Digite o UUID do usuário!");
-                return;
-            }
+    <!-- Form de inserção/atualização -->
+    <div class="card">
+        <h2>Adicionar / Atualizar Investimento</h2>
+        <input type="hidden" id="investimentoId" /> <!-- usado para atualizar -->
+        <div class="flex-row">
+            <input type="text" id="tipo" placeholder="Tipo (FII, Ação...)" />
+            <input type="text" id="codigo" placeholder="Código" />
+            <input type="number" id="valor" placeholder="Valor" />
+            <select id="operacao">
+                <option value="compra">Compra</option>
+                <option value="venda">Venda</option>
+            </select>
+        </div>
+        <div class="flex-row">
+            <button class="btn-add" onclick="adicionarInvestimento()">Adicionar</button>
+            <button class="btn-update" onclick="atualizarInvestimento()">Atualizar</button>
+        </div>
+        <p id="mensagemForm" class="mensagem"></p>
+    </div>
+</div>
 
-            try {
-                const response = await fetch(`${baseUrl}/investimentos/${userId}`);
-                if (!response.ok) throw new Error("Erro ao buscar investimentos");
-                const data = await response.json();
+<script>
+const baseUrl = "http://localhost:5171"; // URL da API
 
-                if (!data.length) {
-                    tabela.style.display = "none";
-                    mensagem.textContent = "Nenhum investimento encontrado.";
-                    return;
-                }
+// --- Listar ---
+async function listarInvestimentos() {
+    const UserCpf = document.getElementById("UserCpf").value.trim();
+    const tabela = document.getElementById("tabelaInvestimentos");
+    const tbody = tabela.querySelector("tbody");
+    const mensagem = document.getElementById("mensagem");
 
-                tbody.innerHTML = ""; // limpa tabela
-                data.forEach(inv => {
-                    const row = document.createElement("tr");
-                    row.innerHTML = `
-                        <td>${inv.tipo}</td>
-                        <td>${inv.codigo}</td>
-                        <td>R$ ${inv.valor.toLocaleString('pt-BR')}</td>
-                        <td style="color: ${inv.operacao === 'compra' ? 'green' : 'red'};">${inv.operacao}</td>
-                        <td>${new Date(inv.criadoEm).toLocaleString('pt-BR')}</td>
-                    `;
-                    tbody.appendChild(row);
-                });
+    if (!UserCpf) { alert("Digite o CPF do usuário!"); return; }
 
-                tabela.style.display = "table";
-                mensagem.textContent = "";
-            } catch (err) {
-                tabela.style.display = "none";
-                mensagem.textContent = `Erro: ${err.message}`;
-            }
+    try {
+        const response = await fetch(`${baseUrl}/investimentos/${UserCpf}`);
+        if (!response.ok) throw new Error("Erro ao buscar investimentos");
+        const data = await response.json();
+
+        if (!data.length) {
+            tabela.style.display = "none";
+            mensagem.textContent = "Nenhum investimento encontrado.";
+            return;
         }
-    </script>
+
+        tbody.innerHTML = "";
+        data.forEach(inv => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${inv.tipo}</td>
+                <td>${inv.codigo}</td>
+                <td>R$ ${inv.valor.toLocaleString('pt-BR')}</td>
+                <td style="text-align:center;">
+                    <span style="
+                        display:inline-block;
+                        padding:4px 12px;
+                        border-radius:12px;
+                        font-size:14px;
+                        font-weight:600;
+                        background-color:${inv.operacao==='compra'?'#e6f9ec':'#fdeaea'};
+                        color:${inv.operacao==='compra'?'#27ae60':'#c0392b'};
+                        width:60%;
+                    ">
+                        ${inv.operacao.charAt(0).toUpperCase() + inv.operacao.slice(1)}
+                    </span>
+                </td>
+                <td>${new Date(inv.criadoEm).toLocaleString('pt-BR')}</td>
+                <td>
+                    <button class="btn-update" onclick="preencherForm('${inv.id}','${inv.tipo}','${inv.codigo}',${inv.valor},'${inv.operacao}')">✏️</button>
+                    <button class="btn-delete" onclick="deletarInvestimento('${inv.id}','${UserCpf}')">🗑️</button>
+                </td>
+            `;
+            tbody.appendChild(row);
+        });
+
+        tabela.style.display = "table";
+        mensagem.textContent = "";
+    } catch (err) {
+        tabela.style.display = "none";
+        mensagem.textContent = `Erro: ${err.message}`;
+    }
+}
+
+// --- Preenche o form para atualização ---
+function preencherForm(id, tipo, codigo, valor, operacao) {
+    document.getElementById("investimentoId").value = id;
+    document.getElementById("tipo").value = tipo;
+    document.getElementById("codigo").value = codigo;
+    document.getElementById("valor").value = valor;
+    document.getElementById("operacao").value = operacao;
+}
+
+// --- Adicionar ---
+async function adicionarInvestimento() {
+    const UserCpf = document.getElementById("UserCpf").value.trim();
+    const tipo = document.getElementById("tipo").value.trim();
+    const codigo = document.getElementById("codigo").value.trim();
+    const valor = parseFloat(document.getElementById("valor").value);
+    const operacao = document.getElementById("operacao").value;
+
+    if (!UserCpf || !tipo || !codigo || !valor) { alert("Preencha todos os campos!"); return; }
+
+    try {
+        const response = await fetch(`${baseUrl}/investimentos`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ userCpf: UserCpf, tipo, codigo, valor, operacao })
+        });
+
+        if (!response.ok) throw new Error("Erro ao adicionar investimento");
+
+        document.getElementById("mensagemForm").textContent = "Investimento adicionado com sucesso!";
+        listarInvestimentos();
+    } catch (err) {
+        document.getElementById("mensagemForm").textContent = `Erro: ${err.message}`;
+    }
+}
+
+// --- Atualizar ---
+async function atualizarInvestimento() {
+    const id = document.getElementById("investimentoId").value;
+    if (!id) { alert("Selecione um investimento para atualizar!"); return; }
+
+    const tipo = document.getElementById("tipo").value.trim();
+    const codigo = document.getElementById("codigo").value.trim();
+    const valor = parseFloat(document.getElementById("valor").value);
+    const operacao = document.getElementById("operacao").value;
+    const UserCpf = document.getElementById("UserCpf").value.trim();
+
+    try {
+        const response = await fetch(`${baseUrl}/investimentos/${id}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ tipo, codigo, valor, operacao })
+        });
+
+        if (!response.ok) throw new Error("Erro ao atualizar investimento");
+        document.getElementById("mensagemForm").textContent = "Investimento atualizado com sucesso!";
+        listarInvestimentos();
+    } catch (err) {
+        document.getElementById("mensagemForm").textContent = `Erro: ${err.message}`;
+    }
+}
+
+// --- Deletar ---
+async function deletarInvestimento(id, cpf) {
+    if (!confirm("Deseja realmente deletar este investimento?")) return;
+    try {
+        const response = await fetch(`${baseUrl}/investimentos/${id}`, { method: "DELETE" });
+        if (!response.ok) throw new Error("Erro ao deletar investimento");
+        document.getElementById("mensagemForm").textContent = "Investimento deletado!";
+        listarInvestimentos();
+    } catch (err) {
+        document.getElementById("mensagemForm").textContent = `Erro: ${err.message}`;
+    }
+}
+</script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "nxljSw1jpBeA3lC3hkO2+23fySqFyL4N44DVS2b9sJo=",
+  "Hash": "ctpGnR01H9mD8cXpqCIJBKEUaNhXDEyCo/TtAtiydqQ=",
   "Source": "Investimentos",
   "BasePath": "_content/Investimentos",
   "Mode": "Default",
@@ -10,38 +10,38 @@
     {
       "Name": "Investimentos\\wwwroot",
       "Source": "Investimentos",
-      "ContentRoot": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Sprint3\\CSharp\\Investimentos\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\victo\\Desktop\\Sprint3\\CSharp\\CSharpSprint3\\Investimentos\\wwwroot\\",
       "BasePath": "_content/Investimentos",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Sprint3\\CSharp\\Investimentos\\obj\\Debug\\net9.0\\compressed\\rsxhvjnfem-rnsiapspqf.gz",
+      "Identity": "C:\\Users\\victo\\Desktop\\Sprint3\\CSharp\\CSharpSprint3\\Investimentos\\obj\\Debug\\net9.0\\compressed\\rsxhvjnfem-so80nj81fg.gz",
       "SourceId": "Investimentos",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Sprint3\\CSharp\\Investimentos\\obj\\Debug\\net9.0\\compressed\\",
+      "ContentRoot": "C:\\Users\\victo\\Desktop\\Sprint3\\CSharp\\CSharpSprint3\\Investimentos\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/Investimentos",
-      "RelativePath": "index#[.{fingerprint=rnsiapspqf}]?.html.gz",
+      "RelativePath": "index#[.{fingerprint=so80nj81fg}]?.html.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
       "AssetMergeBehavior": "",
       "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Sprint3\\CSharp\\Investimentos\\wwwroot\\index.html",
+      "RelatedAsset": "C:\\Users\\victo\\Desktop\\Sprint3\\CSharp\\CSharpSprint3\\Investimentos\\wwwroot\\index.html",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "jabi7h85fv",
-      "Integrity": "qxTAgCtYdTtxW+BPZp+7A2GGdUma9dRju69V/PDhC/4=",
+      "Fingerprint": "4ocjrles1q",
+      "Integrity": "5BVM4hEA0YIb743YRNFBSxxTqyelmiMc1oqc38g0vlQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Sprint3\\CSharp\\Investimentos\\wwwroot\\index.html"
+      "OriginalItemSpec": "C:\\Users\\victo\\Desktop\\Sprint3\\CSharp\\CSharpSprint3\\Investimentos\\wwwroot\\index.html"
     },
     {
-      "Identity": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Sprint3\\CSharp\\Investimentos\\wwwroot\\index.html",
+      "Identity": "C:\\Users\\victo\\Desktop\\Sprint3\\CSharp\\CSharpSprint3\\Investimentos\\wwwroot\\index.html",
       "SourceId": "Investimentos",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Sprint3\\CSharp\\Investimentos\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\victo\\Desktop\\Sprint3\\CSharp\\CSharpSprint3\\Investimentos\\wwwroot\\",
       "BasePath": "_content/Investimentos",
       "RelativePath": "index#[.{fingerprint}]?.html",
       "AssetKind": "All",
@@ -52,8 +52,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "rnsiapspqf",
-      "Integrity": "aVBouptU4jneUPVMfIBVkcLWo8jdHUv3VN+3JKRu77k=",
+      "Fingerprint": "so80nj81fg",
+      "Integrity": "BHESMdccOx7MmIFVHT3FiORu3A5XbqBUkCJM66ytkhc=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\index.html"
@@ -62,12 +62,12 @@
   "Endpoints": [
     {
       "Route": "index.html",
-      "AssetFile": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Sprint3\\CSharp\\Investimentos\\obj\\Debug\\net9.0\\compressed\\rsxhvjnfem-rnsiapspqf.gz",
+      "AssetFile": "C:\\Users\\victo\\Desktop\\Sprint3\\CSharp\\CSharpSprint3\\Investimentos\\obj\\Debug\\net9.0\\compressed\\rsxhvjnfem-so80nj81fg.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000680735194"
+          "Quality": "0.000390930414"
         }
       ],
       "ResponseHeaders": [
@@ -77,15 +77,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1468"
+          "Value": "2557"
         },
         {
           "Name": "ETag",
-          "Value": "\"qxTAgCtYdTtxW+BPZp+7A2GGdUma9dRju69V/PDhC/4=\""
+          "Value": "\"5BVM4hEA0YIb743YRNFBSxxTqyelmiMc1oqc38g0vlQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 25 Aug 2025 14:04:46 GMT"
+          "Value": "Tue, 26 Aug 2025 00:08:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -105,19 +105,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"aVBouptU4jneUPVMfIBVkcLWo8jdHUv3VN+3JKRu77k=\""
+          "Value": "W/\"BHESMdccOx7MmIFVHT3FiORu3A5XbqBUkCJM66ytkhc=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-aVBouptU4jneUPVMfIBVkcLWo8jdHUv3VN+3JKRu77k="
+          "Value": "sha256-BHESMdccOx7MmIFVHT3FiORu3A5XbqBUkCJM66ytkhc="
         }
       ]
     },
     {
       "Route": "index.html",
-      "AssetFile": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Sprint3\\CSharp\\Investimentos\\wwwroot\\index.html",
+      "AssetFile": "C:\\Users\\victo\\Desktop\\Sprint3\\CSharp\\CSharpSprint3\\Investimentos\\wwwroot\\index.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -126,7 +126,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4484"
+          "Value": "10013"
         },
         {
           "Name": "Content-Type",
@@ -134,11 +134,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"aVBouptU4jneUPVMfIBVkcLWo8jdHUv3VN+3JKRu77k=\""
+          "Value": "\"BHESMdccOx7MmIFVHT3FiORu3A5XbqBUkCJM66ytkhc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 25 Aug 2025 14:04:46 GMT"
+          "Value": "Tue, 26 Aug 2025 00:08:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -148,13 +148,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-aVBouptU4jneUPVMfIBVkcLWo8jdHUv3VN+3JKRu77k="
+          "Value": "sha256-BHESMdccOx7MmIFVHT3FiORu3A5XbqBUkCJM66ytkhc="
         }
       ]
     },
     {
       "Route": "index.html.gz",
-      "AssetFile": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Sprint3\\CSharp\\Investimentos\\obj\\Debug\\net9.0\\compressed\\rsxhvjnfem-rnsiapspqf.gz",
+      "AssetFile": "C:\\Users\\victo\\Desktop\\Sprint3\\CSharp\\CSharpSprint3\\Investimentos\\obj\\Debug\\net9.0\\compressed\\rsxhvjnfem-so80nj81fg.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -163,7 +163,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1468"
+          "Value": "2557"
         },
         {
           "Name": "Content-Type",
@@ -171,11 +171,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"qxTAgCtYdTtxW+BPZp+7A2GGdUma9dRju69V/PDhC/4=\""
+          "Value": "\"5BVM4hEA0YIb743YRNFBSxxTqyelmiMc1oqc38g0vlQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 25 Aug 2025 14:04:46 GMT"
+          "Value": "Tue, 26 Aug 2025 00:08:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -193,18 +193,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-qxTAgCtYdTtxW+BPZp+7A2GGdUma9dRju69V/PDhC/4="
+          "Value": "sha256-5BVM4hEA0YIb743YRNFBSxxTqyelmiMc1oqc38g0vlQ="
         }
       ]
     },
     {
-      "Route": "index.rnsiapspqf.html",
-      "AssetFile": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Sprint3\\CSharp\\Investimentos\\obj\\Debug\\net9.0\\compressed\\rsxhvjnfem-rnsiapspqf.gz",
+      "Route": "index.so80nj81fg.html",
+      "AssetFile": "C:\\Users\\victo\\Desktop\\Sprint3\\CSharp\\CSharpSprint3\\Investimentos\\obj\\Debug\\net9.0\\compressed\\rsxhvjnfem-so80nj81fg.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000680735194"
+          "Quality": "0.000390930414"
         }
       ],
       "ResponseHeaders": [
@@ -214,15 +214,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1468"
+          "Value": "2557"
         },
         {
           "Name": "ETag",
-          "Value": "\"qxTAgCtYdTtxW+BPZp+7A2GGdUma9dRju69V/PDhC/4=\""
+          "Value": "\"5BVM4hEA0YIb743YRNFBSxxTqyelmiMc1oqc38g0vlQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 25 Aug 2025 14:04:46 GMT"
+          "Value": "Tue, 26 Aug 2025 00:08:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -242,13 +242,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"aVBouptU4jneUPVMfIBVkcLWo8jdHUv3VN+3JKRu77k=\""
+          "Value": "W/\"BHESMdccOx7MmIFVHT3FiORu3A5XbqBUkCJM66ytkhc=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "rnsiapspqf"
+          "Value": "so80nj81fg"
         },
         {
           "Name": "label",
@@ -256,13 +256,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-aVBouptU4jneUPVMfIBVkcLWo8jdHUv3VN+3JKRu77k="
+          "Value": "sha256-BHESMdccOx7MmIFVHT3FiORu3A5XbqBUkCJM66ytkhc="
         }
       ]
     },
     {
-      "Route": "index.rnsiapspqf.html",
-      "AssetFile": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Sprint3\\CSharp\\Investimentos\\wwwroot\\index.html",
+      "Route": "index.so80nj81fg.html",
+      "AssetFile": "C:\\Users\\victo\\Desktop\\Sprint3\\CSharp\\CSharpSprint3\\Investimentos\\wwwroot\\index.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -271,7 +271,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4484"
+          "Value": "10013"
         },
         {
           "Name": "Content-Type",
@@ -279,11 +279,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"aVBouptU4jneUPVMfIBVkcLWo8jdHUv3VN+3JKRu77k=\""
+          "Value": "\"BHESMdccOx7MmIFVHT3FiORu3A5XbqBUkCJM66ytkhc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 25 Aug 2025 14:04:46 GMT"
+          "Value": "Tue, 26 Aug 2025 00:08:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -293,7 +293,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "rnsiapspqf"
+          "Value": "so80nj81fg"
         },
         {
           "Name": "label",
@@ -301,13 +301,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-aVBouptU4jneUPVMfIBVkcLWo8jdHUv3VN+3JKRu77k="
+          "Value": "sha256-BHESMdccOx7MmIFVHT3FiORu3A5XbqBUkCJM66ytkhc="
         }
       ]
     },
     {
-      "Route": "index.rnsiapspqf.html.gz",
-      "AssetFile": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Sprint3\\CSharp\\Investimentos\\obj\\Debug\\net9.0\\compressed\\rsxhvjnfem-rnsiapspqf.gz",
+      "Route": "index.so80nj81fg.html.gz",
+      "AssetFile": "C:\\Users\\victo\\Desktop\\Sprint3\\CSharp\\CSharpSprint3\\Investimentos\\obj\\Debug\\net9.0\\compressed\\rsxhvjnfem-so80nj81fg.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -316,7 +316,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1468"
+          "Value": "2557"
         },
         {
           "Name": "Content-Type",
@@ -324,11 +324,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"qxTAgCtYdTtxW+BPZp+7A2GGdUma9dRju69V/PDhC/4=\""
+          "Value": "\"5BVM4hEA0YIb743YRNFBSxxTqyelmiMc1oqc38g0vlQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 25 Aug 2025 14:04:46 GMT"
+          "Value": "Tue, 26 Aug 2025 00:08:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -346,7 +346,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "rnsiapspqf"
+          "Value": "so80nj81fg"
         },
         {
           "Name": "label",
@@ -354,7 +354,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-qxTAgCtYdTtxW+BPZp+7A2GGdUma9dRju69V/PDhC/4="
+          "Value": "sha256-5BVM4hEA0YIb743YRNFBSxxTqyelmiMc1oqc38g0vlQ="
         }
       ]
     }

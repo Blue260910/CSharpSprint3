@@ -35,9 +35,9 @@ app.MapPost("/investimentos", (Investimento inv) =>
 });
 
 // Listar investimentos por usuário
-app.MapGet("/investimentos/{userId:guid}", (Guid userId) =>
+app.MapGet("/investimentos/{UserCpf}", (string UserCpf) =>
 {
-    var lista = repo.ListarPorUsuario(userId);
+    var lista = repo.ListarPorUsuario(UserCpf);
     return Results.Ok(lista);
 });
 
