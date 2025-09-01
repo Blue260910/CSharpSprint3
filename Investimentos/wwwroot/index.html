@@ -1,289 +1,243 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <title>Investimentos - Teste API</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f4f6f8;
-            display: flex;
-            justify-content: center;
-            padding: 40px 20px;
-        }
-
-        .container {
-            background: #fff;
-            padding: 30px 40px;
-            border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-            width: 100%;
-            max-width: 900px;
-        }
-
-        h1 {
-            text-align: center;
-            color: #2c3e50;
-            margin-bottom: 25px;
-        }
-
-        input, select, button {
-            padding: 10px 15px;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            font-size: 16px;
-        }
-
-        input, select {
-            width: 100%;
-        }
-
-        button {
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .btn-add { background-color: #27ae60; color: #fff; border: none; }
-        .btn-add:hover { background-color: #1e8449; }
-
-        .btn-update { background-color: #2980b9; color: #fff; border: none; }
-        .btn-update:hover { background-color: #1f618d; }
-
-        .btn-delete { background-color: #c0392b; color: #fff; border: none; padding:5px 10px; border-radius:6px; }
-        .btn-delete:hover { background-color: #922b21; }
-
-        .flex-row {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-bottom: 15px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 25px;
-        }
-
-        th, td {
-            padding: 12px 15px;
-            border-bottom: 1px solid #ddd;
-            text-align: center;
-        }
-
-        th {
-            background-color: #3498db;
-            color: #fff;
-        }
-
-        tr:hover {
-            background-color: #f1f1f1;
-        }
-
-        .card {
-            background: #fefefe;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            margin-top: 25px;
-        }
-
-        .card h2 {
-            margin-top: 0;
-            margin-bottom: 15px;
-            font-size: 20px;
-            color: #2c3e50;
-        }
-
-        .mensagem {
-            margin-top: 20px;
-            color: #555;
-        }
-
-    </style>
-</head>
-<body>
-<div class="container">
-    <h1>Investimentos</h1>
-
-    <!-- Busca por CPF -->
-    <div class="flex-row">
-        <input type="text" id="UserCpf" placeholder="Digite o CPF do usuário" />
-        <button class="btn-add" onclick="listarInvestimentos()">Listar</button>
-    </div>
-
-    <!-- Tabela de investimentos -->
-    <table id="tabelaInvestimentos" style="display:none;">
-        <thead>
-        <tr>
-            <th>Tipo</th>
-            <th>Código</th>
-            <th>Valor</th>
-            <th>Operação</th>
-            <th>Criado em</th>
-            <th>Ações</th>
-        </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
-
-    <p id="mensagem" class="mensagem">Insira o CPF e clique em "Listar".</p>
-
-    <!-- Form de inserção/atualização -->
-    <div class="card">
-        <h2>Adicionar / Atualizar Investimento</h2>
-        <input type="hidden" id="investimentoId" /> <!-- usado para atualizar -->
-        <div class="flex-row">
-            <input type="text" id="tipo" placeholder="Tipo (FII, Ação...)" />
-            <input type="text" id="codigo" placeholder="Código" />
-            <input type="number" id="valor" placeholder="Valor" />
-            <select id="operacao">
-                <option value="compra">Compra</option>
-                <option value="venda">Venda</option>
-            </select>
+<!--8EIcYoHaYX4m_ClHVzqII-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="preload"
+      href="/_next/static/media/797e433ab948586e-s.p.dbea232f.woff2"
+      as="font"
+      crossorigin=""
+      type="font/woff2"
+    />
+    <link
+      rel="preload"
+      href="/_next/static/media/caa3a2e1cccd8315-s.p.6435ea53.woff2"
+      as="font"
+      crossorigin=""
+      type="font/woff2"
+    />
+    <link
+      rel="stylesheet"
+      href="/_next/static/chunks/c71ac0f8bfd8bb35.css"
+      data-precedence="next"
+    />
+    <link
+      rel="preload"
+      as="script"
+      fetchPriority="low"
+      href="/_next/static/chunks/f83c73672769c75b.js"
+    />
+    <script src="/_next/static/chunks/31bc4565ab341ca3.js" async=""></script>
+    <script src="/_next/static/chunks/fa87728035dac6e4.js" async=""></script>
+    <script
+      src="/_next/static/chunks/turbopack-d88ac21dda00b729.js"
+      async=""
+    ></script>
+    <script src="/_next/static/chunks/060f9a97930f3d04.js" async=""></script>
+    <script src="/_next/static/chunks/be7bdd90080415c2.js" async=""></script>
+    <meta name="next-size-adjust" content="" />
+    <title>Create Next App</title>
+    <meta name="description" content="Generated by create next app" />
+    <link
+      rel="icon"
+      href="/favicon.ico?favicon.0b3bf435.ico"
+      sizes="256x256"
+      type="image/x-icon"
+    />
+    <script src="/_next/static/chunks/a6dad97d9634a72d.js" nomodule=""></script>
+  </head>
+  <body
+    class="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__variable antialiased"
+  >
+    <div hidden=""><!--$--><!--/$--></div>
+    <div
+      class="min-h-screen flex flex-col items-center justify-center bg-muted py-10 px-2"
+    >
+      <div class="w-full max-w-3xl flex justify-end mb-2">
+        <div class="flex items-center gap-2">
+          <span class="text-xs text-muted-foreground">Dark mode</span
+          ><button
+            type="button"
+            role="switch"
+            aria-checked="false"
+            data-state="unchecked"
+            value="on"
+            data-slot="switch"
+            class="peer data-[state=checked]:bg-primary data-[state=unchecked]:bg-input focus-visible:border-ring focus-visible:ring-ring/50 dark:data-[state=unchecked]:bg-input/80 inline-flex h-[1.15rem] w-8 shrink-0 items-center rounded-full border border-transparent shadow-xs transition-all outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            <span
+              data-state="unchecked"
+              data-slot="switch-thumb"
+              class="bg-background dark:data-[state=unchecked]:bg-foreground dark:data-[state=checked]:bg-primary-foreground pointer-events-none block size-4 rounded-full ring-0 transition-transform data-[state=checked]:translate-x-[calc(100%-2px)] data-[state=unchecked]:translate-x-0"
+            ></span></button
+          ><input
+            type="checkbox"
+            aria-hidden="true"
+            style="
+              transform: translateX(-100%);
+              position: absolute;
+              pointer-events: none;
+              opacity: 0;
+              margin: 0;
+            "
+            tabindex="-1"
+            value="on"
+          />
         </div>
-        <div class="flex-row">
-            <button class="btn-add" onclick="adicionarInvestimento()">Adicionar</button>
-            <button class="btn-update" onclick="atualizarInvestimento()">Atualizar</button>
+      </div>
+      <div
+        data-slot="card"
+        class="text-card-foreground flex flex-col gap-6 border w-full max-w-3xl bg-background rounded-xl shadow-lg p-6 sm:p-10"
+      >
+        <h1 class="text-3xl font-bold text-center mb-6">Investimentos</h1>
+        <div class="flex flex-col sm:flex-row gap-3 mb-4">
+          <input
+            type="text"
+            data-slot="input"
+            class="file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive flex-1 text-base"
+            placeholder="Digite o CPF do usuário"
+            value=""
+          /><button
+            data-slot="button"
+            class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive shadow-xs h-9 px-4 py-2 has-[&gt;svg]:px-3 bg-green-600 hover:bg-green-700 text-white font-semibold"
+          >
+            Listar
+          </button>
         </div>
-        <p id="mensagemForm" class="mensagem"></p>
+        <p class="text-center text-muted-foreground mb-2">
+          Insira o CPF e clique em &#x27;Listar&#x27;.
+        </p>
+        <div
+          data-slot="card"
+          class="text-card-foreground flex flex-col gap-6 border bg-muted rounded-xl shadow-md p-6 mt-8"
+        >
+          <h2 class="text-xl font-semibold mb-4">
+            Adicionar / Atualizar Investimento
+          </h2>
+          <input type="hidden" value="" />
+          <div class="flex flex-col sm:flex-row gap-3 mb-3">
+            <input
+              type="text"
+              data-slot="input"
+              class="file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive flex-1"
+              placeholder="Tipo (FII, Ação...)"
+              value=""
+            /><input
+              type="text"
+              data-slot="input"
+              class="file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive flex-1"
+              placeholder="Código"
+              value=""
+            /><input
+              type="number"
+              data-slot="input"
+              class="file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive flex-1"
+              placeholder="Valor"
+              value=""
+            /><button
+              type="button"
+              role="combobox"
+              aria-controls="radix-_R_13mavb_"
+              aria-expanded="false"
+              aria-autocomplete="none"
+              dir="ltr"
+              data-state="closed"
+              data-slot="select-trigger"
+              data-size="default"
+              class="border-input data-[placeholder]:text-muted-foreground [&amp;_svg:not([class*=&#x27;text-&#x27;])]:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 dark:hover:bg-input/50 flex w-fit items-center justify-between gap-2 rounded-md border bg-transparent px-3 py-2 text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 data-[size=default]:h-9 data-[size=sm]:h-8 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 flex-1"
+            >
+              <span data-slot="select-value" style="pointer-events: none"></span
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-chevron-down size-4 opacity-50"
+                aria-hidden="true"
+              >
+                <path d="m6 9 6 6 6-6"></path>
+              </svg></button
+            ><select
+              aria-hidden="true"
+              tabindex="-1"
+              style="
+                position: absolute;
+                border: 0;
+                width: 1px;
+                height: 1px;
+                padding: 0;
+                margin: -1px;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                white-space: nowrap;
+                word-wrap: normal;
+              "
+            ></select>
+          </div>
+          <div class="flex gap-3 mb-2">
+            <button
+              data-slot="button"
+              class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive shadow-xs h-9 px-4 py-2 has-[&gt;svg]:px-3 bg-green-600 hover:bg-green-700 text-white font-semibold"
+            >
+              Adicionar</button
+            ><button
+              data-slot="button"
+              class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive shadow-xs h-9 px-4 py-2 has-[&gt;svg]:px-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold"
+            >
+              Atualizar
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
-
-<script>
-const baseUrl = "http://localhost:5171"; // URL da API
-
-// --- Listar ---
-async function listarInvestimentos() {
-    const UserCpf = document.getElementById("UserCpf").value.trim();
-    const tabela = document.getElementById("tabelaInvestimentos");
-    const tbody = tabela.querySelector("tbody");
-    const mensagem = document.getElementById("mensagem");
-
-    if (!UserCpf) { alert("Digite o CPF do usuário!"); return; }
-
-    try {
-        const response = await fetch(`${baseUrl}/investimentos/${UserCpf}`);
-        if (!response.ok) throw new Error("Erro ao buscar investimentos");
-        const data = await response.json();
-
-        if (!data.length) {
-            tabela.style.display = "none";
-            mensagem.textContent = "Nenhum investimento encontrado.";
-            return;
-        }
-
-        tbody.innerHTML = "";
-        data.forEach(inv => {
-            const row = document.createElement("tr");
-            row.innerHTML = `
-                <td>${inv.tipo}</td>
-                <td>${inv.codigo}</td>
-                <td>R$ ${inv.valor.toLocaleString('pt-BR')}</td>
-                <td style="text-align:center;">
-                    <span style="
-                        display:inline-block;
-                        padding:4px 12px;
-                        border-radius:12px;
-                        font-size:14px;
-                        font-weight:600;
-                        background-color:${inv.operacao==='compra'?'#e6f9ec':'#fdeaea'};
-                        color:${inv.operacao==='compra'?'#27ae60':'#c0392b'};
-                        width:60%;
-                    ">
-                        ${inv.operacao.charAt(0).toUpperCase() + inv.operacao.slice(1)}
-                    </span>
-                </td>
-                <td>${new Date(inv.criadoEm).toLocaleString('pt-BR')}</td>
-                <td>
-                    <button class="btn-update" onclick="preencherForm('${inv.id}','${inv.tipo}','${inv.codigo}',${inv.valor},'${inv.operacao}')">✏️</button>
-                    <button class="btn-delete" onclick="deletarInvestimento('${inv.id}','${UserCpf}')">🗑️</button>
-                </td>
-            `;
-            tbody.appendChild(row);
-        });
-
-        tabela.style.display = "table";
-        mensagem.textContent = "";
-    } catch (err) {
-        tabela.style.display = "none";
-        mensagem.textContent = `Erro: ${err.message}`;
-    }
-}
-
-// --- Preenche o form para atualização ---
-function preencherForm(id, tipo, codigo, valor, operacao) {
-    document.getElementById("investimentoId").value = id;
-    document.getElementById("tipo").value = tipo;
-    document.getElementById("codigo").value = codigo;
-    document.getElementById("valor").value = valor;
-    document.getElementById("operacao").value = operacao;
-}
-
-// --- Adicionar ---
-async function adicionarInvestimento() {
-    const UserCpf = document.getElementById("UserCpf").value.trim();
-    const tipo = document.getElementById("tipo").value.trim();
-    const codigo = document.getElementById("codigo").value.trim();
-    const valor = parseFloat(document.getElementById("valor").value);
-    const operacao = document.getElementById("operacao").value;
-
-    if (!UserCpf || !tipo || !codigo || !valor) { alert("Preencha todos os campos!"); return; }
-
-    try {
-        const response = await fetch(`${baseUrl}/investimentos`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ userCpf: UserCpf, tipo, codigo, valor, operacao })
-        });
-
-        if (!response.ok) throw new Error("Erro ao adicionar investimento");
-
-        document.getElementById("mensagemForm").textContent = "Investimento adicionado com sucesso!";
-        listarInvestimentos();
-    } catch (err) {
-        document.getElementById("mensagemForm").textContent = `Erro: ${err.message}`;
-    }
-}
-
-// --- Atualizar ---
-async function atualizarInvestimento() {
-    const id = document.getElementById("investimentoId").value;
-    if (!id) { alert("Selecione um investimento para atualizar!"); return; }
-
-    const tipo = document.getElementById("tipo").value.trim();
-    const codigo = document.getElementById("codigo").value.trim();
-    const valor = parseFloat(document.getElementById("valor").value);
-    const operacao = document.getElementById("operacao").value;
-    const UserCpf = document.getElementById("UserCpf").value.trim();
-
-    try {
-        const response = await fetch(`${baseUrl}/investimentos/${id}`, {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ tipo, codigo, valor, operacao })
-        });
-
-        if (!response.ok) throw new Error("Erro ao atualizar investimento");
-        document.getElementById("mensagemForm").textContent = "Investimento atualizado com sucesso!";
-        listarInvestimentos();
-    } catch (err) {
-        document.getElementById("mensagemForm").textContent = `Erro: ${err.message}`;
-    }
-}
-
-// --- Deletar ---
-async function deletarInvestimento(id, cpf) {
-    if (!confirm("Deseja realmente deletar este investimento?")) return;
-    try {
-        const response = await fetch(`${baseUrl}/investimentos/${id}`, { method: "DELETE" });
-        if (!response.ok) throw new Error("Erro ao deletar investimento");
-        document.getElementById("mensagemForm").textContent = "Investimento deletado!";
-        listarInvestimentos();
-    } catch (err) {
-        document.getElementById("mensagemForm").textContent = `Erro: ${err.message}`;
-    }
-}
-</script>
-</body>
+    <!--$--><!--/$-->
+    <script
+      src="/_next/static/chunks/f83c73672769c75b.js"
+      id="_R_"
+      async=""
+    ></script>
+    <script>
+      (self.__next_f = self.__next_f || []).push([0]);
+    </script>
+    <script>
+      self.__next_f.push([
+        1,
+        '1:"$Sreact.fragment"\n2:I[39756,["/_next/static/chunks/060f9a97930f3d04.js"],"default"]\n3:I[37457,["/_next/static/chunks/060f9a97930f3d04.js"],"default"]\n4:I[47257,["/_next/static/chunks/060f9a97930f3d04.js"],"ClientPageRoot"]\n5:I[31713,["/_next/static/chunks/be7bdd90080415c2.js"],"default"]\n8:I[97367,["/_next/static/chunks/060f9a97930f3d04.js"],"OutletBoundary"]\na:I[11533,["/_next/static/chunks/060f9a97930f3d04.js"],"AsyncMetadataOutlet"]\nc:I[97367,["/_next/static/chunks/060f9a97930f3d04.js"],"ViewportBoundary"]\ne:I[97367,["/_next/static/chunks/060f9a97930f3d04.js"],"MetadataBoundary"]\nf:"$Sreact.suspense"\n11:I[68027,[],"default"]\n:HL["/_next/static/chunks/c71ac0f8bfd8bb35.css","style"]\n:HL["/_next/static/media/797e433ab948586e-s.p.dbea232f.woff2","font",{"crossOrigin":"","type":"font/woff2"}]\n:HL["/_next/static/media/caa3a2e1cccd8315-s.p.6435ea53.woff2","font",{"crossOrigin":"","type":"font/woff2"}]\n',
+      ]);
+    </script>
+    <script>
+      self.__next_f.push([
+        1,
+        '0:{"P":null,"b":"8EIcYoHaYX4m_ClHVzqII","p":"","c":["",""],"i":false,"f":[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/c71ac0f8bfd8bb35.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"className":"geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__variable antialiased","children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\\"Segoe UI\\",Roboto,Helvetica,Arial,sans-serif,\\"Apple Color Emoji\\",\\"Segoe UI Emoji\\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}],{"children":["__PAGE__",["$","$1","c",{"children":[["$","$L4",null,{"Component":"$5","searchParams":{},"params":{},"promises":["$@6","$@7"]}],[["$","script","script-0",{"src":"/_next/static/chunks/be7bdd90080415c2.js","async":true,"nonce":"$undefined"}]],["$","$L8",null,{"children":["$L9",["$","$La",null,{"promise":"$@b"}]]}]]}],{},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$Lc",null,{"children":"$Ld"}],["$","meta",null,{"name":"next-size-adjust","content":""}]],["$","$Le",null,{"children":["$","div",null,{"hidden":true,"children":["$","$f",null,{"fallback":null,"children":"$L10"}]}]}]]}],false]],"m":"$undefined","G":["$11",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/c71ac0f8bfd8bb35.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"s":false,"S":true}\n',
+      ]);
+    </script>
+    <script>
+      self.__next_f.push([
+        1,
+        '6:{}\n7:"$0:f:0:1:2:children:1:props:children:0:props:params"\n',
+      ]);
+    </script>
+    <script>
+      self.__next_f.push([
+        1,
+        'd:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]\n9:null\n',
+      ]);
+    </script>
+    <script>
+      self.__next_f.push([
+        1,
+        '12:I[27201,["/_next/static/chunks/060f9a97930f3d04.js"],"IconMark"]\nb:{"metadata":[["$","title","0",{"children":"Create Next App"}],["$","meta","1",{"name":"description","content":"Generated by create next app"}],["$","link","2",{"rel":"icon","href":"/favicon.ico?favicon.0b3bf435.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L12","3",{}]],"error":null,"digest":"$undefined"}\n',
+      ]);
+    </script>
+    <script>
+      self.__next_f.push([1, '10:"$b:metadata"\n']);
+    </script>
+  </body>
 </html>
