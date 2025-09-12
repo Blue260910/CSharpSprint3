@@ -34,7 +34,11 @@ O projeto `Investimentos` é uma aplicação desenvolvida em C# que tem como obj
 
 ## Autor
 
-Sprint 3 - C#
+André Lambert – RM 99148
+Felipe Cortez - RM 99750
+Julia Lins - RM 98690
+Luis Barreto - RM 99210
+Victor Aranda - RM 99667
 
 ## Testes e Dados de Exemplo
 
