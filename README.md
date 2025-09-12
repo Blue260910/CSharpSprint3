@@ -31,9 +31,65 @@ O projeto `Investimentos` é uma aplicação desenvolvida em C# que tem como obj
 
 ## Observações
 
-- O projeto está configurado para ambiente de desenvolvimento e produção.
-- Os arquivos de configuração podem ser ajustados conforme necessário.
 
 ## Autor
 
+Sprint 3 - C#
+
+## Testes e Dados de Exemplo
+
+Para testar a aplicação, utilize o CPF de exemplo abaixo ao cadastrar ou consultar investimentos:
+
+**CPF para testes:** `526.049.282-38`
+
+Esse CPF já está presente na base de dados de exemplo e pode ser usado para validar as funcionalidades de cadastro, consulta, atualização e remoção de investimentos.
+
+## Arquitetura
+
+O projeto segue o padrão de arquitetura em camadas, separando responsabilidades em:
+- **Modelos:** Representação dos dados (pasta Models)
+- **Repositórios:** Acesso e manipulação dos dados (pasta Repositories)
+- **Program.cs:** Configuração dos endpoints e inicialização da aplicação
+
+### Diagrama das Classes
+
+```mermaid
+classDiagram
+   class Program {
+      +Main()
+      +MapGetRoot()
+      +MapPostInvestimentos()
+      +MapGetInvestimentosPorUsuario()
+      +MapPutInvestimentoPorId()
+      +MapDeleteInvestimentoPorId()
+   }
+
+   class Investimento {
+      +Guid Id
+      +String UserCpf
+      +Guid UserId
+      +string Tipo
+      +string Codigo
+      +decimal Valor
+      +string Operacao
+      +DateTime CriadoEm
+      +DateTime AlteradoEm
+   }
+
+   class InvestimentoRepository {
+      -string _connectionString
+      +InvestimentoRepository(connectionString)
+      +InserirInvestimento(Investimento)
+      +ListarPorUsuario(string)
+      +AtualizarInvestimento(Investimento)
+      +DeletarInvestimento(Guid)
+   }
+
+   Program --> InvestimentoRepository : usa
+   InvestimentoRepository --> Investimento : manipula
+```
+
+## Documentação
+
+Todas as principais funcionalidades estão documentadas nos comentários do código e neste README. Para dúvidas, consulte os arquivos fonte ou entre em contato com o autor.
 Sprint 3 - C#
