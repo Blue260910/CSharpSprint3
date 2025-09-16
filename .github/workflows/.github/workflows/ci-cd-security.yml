@@ -1,1 +1,132 @@
+name: DevSecOps CI/CD Pipeline
 
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build_and_scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do Código
+        uses: actions/checkout@v4
+
+      - name: Configurar Java (necessário para o OWASP Dependency-Check)
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          
+      # --- TAFA 3: SCA - Análise de Componentes de Terceiros ---
+      - name: Executar OWASP Dependency-Check (SCA)
+        uses: dependency-check/action@v3
+        id: dependency_check
+        with:
+          project: 'nome-do-seu-projeto'
+          format: 'ALL'
+          failOnCVSS: 7
+          
+      - name: Upload do Relatório SCA como Artefato
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: owasp-dependency-check-report
+          path: '**/dependency-check-report.*'
+
+      # --- TAREFA 1: SAST - Análise Estática com Semgrep ---
+      - name: Executar Semgrep (SAST)
+        uses: returntocorp/semgrep-action@v1
+        id: semgrep
+        with:
+          config: auto
+          
+      - name: Upload de Resultados SAST para GitHub Code Scanning
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: semgrep.sarif
+
+      # A partir daqui, você pode adicionar a lógica de DAST
+      # O DAST geralmente é executado em um ambiente de staging após o deploy
+      # Por isso, vamos separar em outro job para refletir essa prática
+
+  deploy_and_dast:
+    needs: build_and_scan
+    if: success()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ação de Deploy
+        # Substitua com sua ação de deploy real (ex: para Heroku, AWS, etc.)
+        # Exemplo:
+        # uses: a-community/aws-ec2-deploy@v1.4.0
+        # with:
+        #   ...
+        run: echo "Simulando o deploy para o ambiente de staging..."
+
+      # --- TAREFA 2: DAST - Testes Dinâmicos com OWASP ZAP ---
+      - name: Executar ZAP Baseline Scan (DAST)
+        id: zap_dast
+        uses: zaproxy/action@v0.12.0
+        with:
+          target: 'https://url-do-seu-ambiente-de-staging.com'
+          
+      - name: Upload do Relatório ZAP como Artefato
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: zap-report
+          path: 'zap_report.html'
+          
+      # --- TAREFA 4: Integração e Monitoramento ---
+      - name: Verificação de Vulnerabilidades Críticas
+        # Esta é uma lógica customizada para verificar os resultados de segurança
+        # e falhar o job se vulnerabilidades críticas forem encontradas
+        run: |
+          # Exemplo de lógica para falhar o build
+          # Adapte para as suas necessidades de segurança
+          # Por exemplo, se o relatório DAST encontrar um item de alto risco
+          # Você pode parsear o JSON/XML e usar "exit 1" para falhar o job
+          echo "Verificando se há vulnerabilidades críticas..."
+          # ... (sua lógica de verificação aqui) ...
+          
+      - name: Notificação no Slack (Exemplo)
+        uses: slackapi/slack-github-action@v1.23.0
+        with:
+          payload: |
+            {
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "Pipeline de Segurança Finalizado! :white_check_mark:"
+                  }
+                },
+                {
+                  "type": "divider"
+                },
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Status:* ${{ job.status }}"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Repositório:* ${{ github.repository }}"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Commit:* ${{ github.sha }}"
+                    }
+                  ]
+                }
+              ]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
