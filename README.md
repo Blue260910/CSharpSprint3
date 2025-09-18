@@ -96,4 +96,67 @@ classDiagram
 ## Documentação
 
 Todas as principais funcionalidades estão documentadas nos comentários do código e neste README. Para dúvidas, consulte os arquivos fonte ou entre em contato com o autor.
+
+## Endpoints da API
+
+### 1. GET /
+Retorna a página inicial da aplicação web (`index.html`), localizada em `wwwroot`.
+**Exemplo:**
+```http
+GET http://localhost:5171/
+```
+
+### 2. POST /investimentos
+Cadastra um novo investimento para um usuário.
+**Exemplo:**
+```http
+POST http://localhost:5171/investimentos
+Content-Type: application/json
+
+{
+   "userCpf": "526.049.282-38",
+   "tipo": "Ação",
+   "codigo": "PETR4",
+   "valor": 1000.50,
+   "operacao": "Compra"
+}
+```
+
+### 3. GET /investimentos/{cpf}
+Lista todos os investimentos de um usuário pelo CPF.
+**Exemplo:**
+```http
+GET http://localhost:5171/investimentos/526.049.282-38
+```
+### 6. GET /investimentos/download/{cpf}
+Gera e faz o download de um arquivo `.txt` contendo todos os investimentos do usuário informado pelo CPF.
+O arquivo inclui os campos: Id, UserCpf, Tipo, Código, Valor, Operação.
+**Exemplo:**
+```http
+GET http://localhost:5171/investimentos/download/526.049.282-38
+```
+O arquivo será baixado automaticamente pelo navegador ou ferramenta HTTP utilizada.
+
+### 4. PUT /investimentos/{id}
+Atualiza os dados de um investimento pelo ID.
+**Exemplo:**
+```http
+PUT http://localhost:5171/investimentos/6e1e2b7a-8c2a-4c1a-9e2a-123456789abc
+Content-Type: application/json
+
+{
+   "tipo": "Fundo Imobiliário",
+   "codigo": "HGLG11",
+   "valor": 1500.00,
+   "operacao": "Compra"
+}
+```
+
+### 5. DELETE /investimentos/{id}
+Remove um investimento pelo ID.
+**Exemplo:**
+```http
+DELETE http://localhost:5171/investimentos/6e1e2b7a-8c2a-4c1a-9e2a-123456789abc
+```
+
 Sprint 3 - C#

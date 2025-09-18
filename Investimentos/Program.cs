@@ -56,4 +56,18 @@ app.MapDelete("/investimentos/{id:guid}", (Guid id) =>
     return Results.Ok();
 });
 
+// Download dos investimentos em TXT
+app.MapGet("/investimentos/download/{UserCpf}", (string UserCpf) =>
+{
+    var lista = repo.ListarPorUsuario(UserCpf);
+    var sb = new System.Text.StringBuilder();
+    sb.AppendLine("Id\tUserCpf\tTipo\tCodigo\tValor\tOperacao");
+    foreach (var inv in lista)
+    {
+        sb.AppendLine($"{inv.Id}\t{inv.UserCpf}\t{inv.Tipo}\t{inv.Codigo}\t{inv.Valor}\t{inv.Operacao}");
+    }
+    var bytes = System.Text.Encoding.UTF8.GetBytes(sb.ToString());
+    return Results.File(bytes, "text/plain", $"investimentos_{UserCpf}.txt");
+});
+
 app.Run("http://localhost:5171");
